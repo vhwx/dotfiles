@@ -1,6 +1,6 @@
 # dotfiles
 
-Dotfiles for a standardized Zsh environment in [GitHub Codespaces](https://github.com/features/codespaces).
+🚀 Dotfiles for a standardized Zsh environment in [GitHub Codespaces](https://github.com/features/codespaces).
 
 ## What it installs
 
