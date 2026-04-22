@@ -53,7 +53,7 @@ curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 # Configure fonts
 # Hack Nerd Font
 mkdir -p "$HOME"/fontinstall
-wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip --output-document "$HOME"/fontinstall/Hack.zip
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/Hack.zip --output-document "$HOME"/fontinstall/Hack.zip
 unzip "$HOME"/fontinstall/Hack.zip -d "$HOME"/fontinstall/HackNerdFont
 sudo mkdir -p /usr/local/share/fonts/hack-nerd-font
 sudo cp "$HOME"/fontinstall/HackNerdFont/*.ttf /usr/local/share/fonts/hack-nerd-font/
