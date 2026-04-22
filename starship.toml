@@ -19,6 +19,8 @@ $line_break\
 $character\
 """
 
+right_format = "$time"
+
 [os]
 disabled = false
 style = "bold blue"
@@ -74,6 +76,11 @@ format = "via [$symbol$context]($style) "
 min_time = 2_000
 format = "took [$duration](bold yellow) "
 show_notifications = false
+
+[time]
+disabled = false
+format = "[$time](dimmed white)"
+time_format = "%H:%M"
 
 [character]
 success_symbol = "[❯](bold green)"
