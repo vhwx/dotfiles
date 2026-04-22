@@ -10,17 +10,18 @@ zshrc() {
     echo "-----------------------------------------------------------"
     git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
     echo "==========================================================="
-    echo "             cloning powerlevel10k                         "
+    echo "             installing Starship prompt                    "
     echo "-----------------------------------------------------------"
-    git clone https://github.com/romkatv/powerlevel10k.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/themes/powerlevel10k
+    curl -sS https://starship.rs/install.sh | sh -s -- --yes
     echo "==========================================================="
     echo "             import zshrc                                  "
     echo "-----------------------------------------------------------"
-    cat .zshrc > "$HOME"/.zshrc
+    cp .zshrc "$HOME"/.zshrc
     echo "==========================================================="
-    echo "             import powerlevel10k                          "
+    echo "             import starship config                        "
     echo "-----------------------------------------------------------"
-    cat .p10k.zsh > "$HOME"/.p10k.zsh
+    mkdir -p "$HOME"/.config
+    cp starship.toml "$HOME"/.config/starship.toml
 }
 
 # Change time zone
@@ -29,8 +30,7 @@ sudo dpkg-reconfigure --frontend noninteractive tzdata
 
 # Copy scripts
 mkdir -p "$HOME"/dev/scripts
-touch "$HOME"/dev/scripts/push.sh
-cat push.sh > "$HOME"/dev/scripts/push.sh
+cp push.sh "$HOME"/dev/scripts/push.sh
 
 # Install packages
 ## exa (deprecated)
@@ -44,6 +44,9 @@ sudo apt update
 sudo apt install -y eza
 ## bat (cat colors)
 sudo apt install -y bat
+## fzf (fuzzy finder — pairs with zsh-autosuggestions for Ctrl+R history search)
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install --all --no-bash --no-fish
 ## Azure CLI
 curl -sL https://aka.ms/InstallAzureCLIDeb | sudo bash
 
