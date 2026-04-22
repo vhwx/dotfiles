@@ -1,10 +1,12 @@
 {
     "extensions": [
         "bierner.markdown-preview-github-styles",
-        "danielsanmedium.dscodegpt",
         "davidanson.vscode-markdownlint",
+        "github.copilot",
+        "github.copilot-chat",
         "jock.svg",
         "ms-azuretools.vscode-bicep",
+        "ms-vscode-remote.remote-containers",
         "ms-vscode.powershell",
         "oderwat.indent-rainbow",
         "redhat.vscode-yaml",
