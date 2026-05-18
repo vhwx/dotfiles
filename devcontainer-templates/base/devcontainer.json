@@ -1,0 +1,56 @@
+{
+    "name": "Base",
+    "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+
+    // Features: install tools — no oh-my-zsh, Starship handles the prompt
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "installOhMyZsh": false,
+            "configureZshAsDefaultShell": true,
+            "upgradePackages": true
+        },
+        "ghcr.io/devcontainers-contrib/features/starship:1": {},
+        "ghcr.io/devcontainers/features/node:1": {
+            "version": "lts",
+            "nvmVersion": "latest"
+        },
+        "ghcr.io/devcontainers/features/azure-cli:1": {
+            "version": "latest"
+        }
+    },
+
+    // Install tools not covered by features, set up zsh plugins without oh-my-zsh,
+    // and configure .zshrc to source them directly from ~/.zsh/
+    "postCreateCommand": "bash .devcontainer/setup.sh",
+
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bierner.markdown-preview-github-styles",
+                "davidanson.vscode-markdownlint",
+                "github.copilot",
+                "github.copilot-chat",
+                "jock.svg",
+                "ms-azuretools.vscode-bicep",
+                "ms-vscode-remote.remote-containers",
+                "ms-vscode.powershell",
+                "oderwat.indent-rainbow",
+                "redhat.vscode-yaml",
+                "shardulm94.trailing-spaces",
+                "streetsidesoftware.code-spell-checker",
+                "streetsidesoftware.code-spell-checker-norwegian-bokmal",
+                "timonwong.shellcheck",
+                "vscode-nested-tags.vscode-nested-tags",
+                "yzhang.markdown-all-in-one"
+            ],
+            "settings": {
+                "terminal.integrated.defaultProfile.linux": "zsh",
+                // Requires Hack Nerd Font installed on the host machine.
+                // Install via: https://github.com/ryanoasis/nerd-fonts/releases (Hack.zip)
+                "terminal.integrated.fontFamily": "'Hack Nerd Font', monospace",
+                "terminal.integrated.fontSize": 14
+            }
+        }
+    }
+}
