@@ -4,11 +4,12 @@ zshrc() {
     echo "==========================================================="
     echo "             cloning zsh-autosuggestions                   "
     echo "-----------------------------------------------------------"
-    git clone https://github.com/zsh-users/zsh-autosuggestions "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-autosuggestions
+    mkdir -p "$HOME"/.zsh
+    git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions "$HOME"/.zsh/zsh-autosuggestions
     echo "==========================================================="
     echo "             cloning zsh-syntax-highlighting               "
     echo "-----------------------------------------------------------"
-    git clone https://github.com/zsh-users/zsh-syntax-highlighting.git "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}"/plugins/zsh-syntax-highlighting
+    git clone --depth 1 https://github.com/zsh-users/zsh-syntax-highlighting.git "$HOME"/.zsh/zsh-syntax-highlighting
     echo "==========================================================="
     echo "             installing Starship prompt                    "
     echo "-----------------------------------------------------------"

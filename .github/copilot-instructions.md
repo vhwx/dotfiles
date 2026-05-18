@@ -17,8 +17,9 @@ Config files are **copied**, not symlinked.
 ## Key Conventions
 
 - `install.sh` uses `#!/bin/sh` — keep it POSIX-compatible; avoid bashisms.
-- The binary for `bat` on Debian/Ubuntu is `batcat`, not `bat` — the `.zshrc` alias reflects this (`alias cat="batcat"`).
+- Zsh plugins (`zsh-autosuggestions`, `zsh-syntax-highlighting`) are cloned to `~/.zsh/` and sourced directly — no oh-my-zsh. The `.zshrc` uses a multi-path fallback loop so it also works if plugins are installed system-wide via `apt`.
+- The `bat` binary is `batcat` on Ubuntu <24.04. The `.zshrc` handles both gracefully; do not hardcode either name.
 - `eza` replaced the deprecated `exa`; do not reintroduce `exa`.
 - The `zshrc()` function in `install.sh` groups all ZSH-related setup (plugin cloning, Starship install, config copying). New ZSH-related setup belongs there.
 - Timezone is always **Europe/Oslo**.
-- `ZSH_THEME=""` in `.zshrc` is intentional — Starship handles the prompt entirely.
+- `devcontainer-templates/base/.zshrc` and `devcontainer-templates/base/starship.toml` are copies of the root-level canonical files. Keep them in sync when either is changed.
